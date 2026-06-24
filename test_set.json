@@ -1,0 +1,122 @@
+[
+{
+  "id": 1,
+  "question": "A price increases from $200 to $260. What is the percentage increase?",
+  "expected_answer": "30%",
+  "expected_tool": "calculator",
+  "match_type": "exact"
+},
+
+{
+  "id": 2,
+  "question": "A dice is rolled once. What is the probability of getting a number greater than 4?",
+  "expected_answer": "approximately 0.333",
+  "expected_tool": "calculator",
+  "match_type": "approximate"
+},
+
+{
+  "id": 3,
+  "question": "If you have 10 apples and give away 3, then buy 5 more, how many apples do you have?",
+  "expected_answer": "12 apples",
+  "expected_tool": "calculator",
+  "match_type": "exact"
+},
+
+{
+  "id": 4,
+  "question": "A car travels 120 km in 2 hours. What is its average speed?",
+  "expected_answer": "60 km/h",
+  "expected_tool": "calculator",
+  "match_type": "exact"
+},
+
+{
+  "id": 5,
+  "question": "A box has 100 light bulbs. 5 are defective. What is the probability of randomly selecting a good bulb?",
+  "expected_answer": "95% (or 0.95)",
+  "expected_tool": "calculator",
+  "match_type": "exact"
+},
+
+{
+  "id": 6,
+  "question": "What is the largest organ in the human body?",
+  "expected_answer": "Skin",
+  "expected_tool": "search",
+  "match_type": "exact"
+},
+
+{
+  "id": 7,
+  "question": "Which ancient civilization built the pyramids of Giza?",
+  "expected_answer": "Ancient Egyptians",
+  "expected_tool": "search",
+  "match_type": "approximate"
+},
+
+{
+  "id": 8,
+  "question": "What operating system does Apple iPhone use?",
+  "expected_answer": "iOS",
+  "expected_tool": "search",
+  "match_type": "exact"
+},
+
+{
+  "id": 9,
+  "question": "How many hearts does an octopus have?",
+  "expected_answer": "Three hearts",
+  "expected_tool": "search",
+  "match_type": "exact"
+},
+
+{
+  "id": 10,
+  "question": "Who founded Microsoft?",
+  "expected_answer": "Bill Gates and Paul Allen",
+  "expected_tool": "search",
+  "match_type": "exact"
+},
+
+{
+  "id": 11,
+  "question": "What percentage of the US population lives in California?",
+  "expected_answer": "11–12%",
+  "expected_tool": "search_and_calculator",
+  "match_type": "approximate"
+},
+
+{
+  "id": 12,
+  "question": "What is the population density of Japan compared to the USA?",
+  "expected_answer": "≈9.2",
+  "expected_tool": "search_and_calculator",
+  "match_type": "approximate"
+},
+
+{
+  "id": 13,
+  "question": "What percentage of the world's population lives in India?",
+  "expected_answer": "~17–18%",
+  "expected_tool": "search_and_calculator",
+  "match_type": "approximate"
+},
+
+{
+  "id": 14,
+  "question": "Compare India and China's land area. How many times larger is China?",
+  "expected_answer": "≈2.9",
+  "expected_tool": "search_and_calculator",
+  "match_type": "approximate"
+},
+
+{
+  "id": 15,
+  "question": "What percentage of Earth's land area is covered by the Amazon rainforest?",
+  "expected_answer": "3.7%",
+  "expected_tool": "search_and_calculator",
+  "match_type": "approximate"
+}
+
+]
