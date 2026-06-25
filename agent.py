@@ -55,7 +55,7 @@ messages=[
         },
         {
             "role": "user",
-            "content": "What is 18 percent of 4500?",
+            "content": "Who is Messi?",
         }
 ]
 
@@ -82,7 +82,7 @@ function_name = tool_calls.function.name
 function_argument=json.loads(tool_calls.function.arguments)
 function_to_call=available_functions[function_name]
 
-result=function_to_call(function_argument["expression"])
+result=function_to_call(**function_argument)
 #print(f"Result: {result}")
 
 # 1. Append the LLM's tool-request message (so the result has a request to attach to)
