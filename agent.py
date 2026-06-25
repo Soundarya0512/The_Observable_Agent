@@ -1,3 +1,10 @@
+import os
+from dotenv import load_dotenv
+from groq import Groq
+import json 
+from tools import calculator,search_engine
+load_dotenv()
+
 tools=[
 {
     "type": "function",
@@ -35,3 +42,45 @@ tools=[
     }
 }
 ]
+
+client = Groq(
+  
+    api_key=os.environ.get("GROQ_API_KEY"),
+)
+
+messages=[
+        {
+            "role": "system",
+            "content": "You are a helpful assistant. You have access to a calculator and a web search tool. Use them when needed to answer the user's question accurately."
+        },
+        {
+            "role": "user",
+            "content": "What is 18 percent of 4500?",
+        }
+]
+
+response = client.chat.completions.create(
+
+    model="llama-3.3-70b-versatile",
+    tools=tools,
+    tool_choice="auto",
+    messages=messages,
+)
+response_message = response.choices[0].message
+#print(response_message)
+#print(response_message.tool_calls)
+
+
+
+available_functions = {
+    "calculator": calculator,
+    "search_engine": search_engine
+}
+
+tool_calls=response_message.tool_calls[0]
+function_name = tool_calls.function.name 
+function_argument=json.loads(tool_calls.function.arguments)
+function_to_call=available_functions[function_name]
+
+result=function_to_call(function_argument["expression"])
+print(f"Result: {result}")

@@ -12,8 +12,8 @@ def calculator(expression):
     except Exception as e:
         return f"An unexpected error occured: {e}"
 
-print(calculator("18 * 4500"))
-print(calculator("18 % of 4500"))
+#print(calculator("18 * 4500"))
+#print(calculator("18 % of 4500"))
 
 def search_engine(question):
     try:
@@ -24,7 +24,7 @@ def search_engine(question):
     except Exception as e:
         return f"An unexpected error occured: {e}"
 
-print(search_engine("Who is Leo Messi?"))
+#print(search_engine("Who is Leo Messi?"))
 
 
     
