@@ -83,4 +83,24 @@ function_argument=json.loads(tool_calls.function.arguments)
 function_to_call=available_functions[function_name]
 
 result=function_to_call(function_argument["expression"])
-print(f"Result: {result}")
+#print(f"Result: {result}")
+
+# 1. Append the LLM's tool-request message (so the result has a request to attach to)
+messages.append(response_message)
+
+# 2. Append the tool result as a "tool" message
+messages.append({
+    "role": "tool",
+    "tool_call_id": tool_calls.id,
+    "content": str(result)
+})
+
+# 3. Call the LLM again with the now-fuller conversation
+second_response = client.chat.completions.create(
+    model="llama-3.3-70b-versatile",
+    messages=messages,
+)
+
+# 4. Print the natural final answer
+final_answer = second_response.choices[0].message.content
+print("Final answer:", final_answer)
