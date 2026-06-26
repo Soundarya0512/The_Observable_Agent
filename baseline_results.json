@@ -1,0 +1,107 @@
+[
+  {
+    "question": "A price increases from $200 to $260. What is the percentage increase?",
+    "expected": "30%",
+    "agent_answer": "The price has increased by 30%.",
+    "correct": true,
+    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer conveys the same meaning as the expected answer, stating a 30% increase."
+  },
+  {
+    "question": "A dice is rolled once. What is the probability of getting a number greater than 4?",
+    "expected": "approximately 0.333",
+    "agent_answer": "The probability of getting a number greater than 4 on a single roll of a dice is 1/3 or approximately 0.33.",
+    "correct": true,
+    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer matches the expected meaning with equivalent numerical value."
+  },
+  {
+    "question": "If you have 10 apples and give away 3, then buy 5 more, how many apples do you have?",
+    "expected": "12 apples",
+    "agent_answer": "You have 12 apples.",
+    "correct": true,
+    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer matches the expected meaning of having 12 apples."
+  },
+  {
+    "question": "A car travels 120 km in 2 hours. What is its average speed?",
+    "expected": "60 km/h",
+    "agent_answer": "The car's average speed is 60 km/h.",
+    "correct": true,
+    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer matches the expected meaning of 60 km/h."
+  },
+  {
+    "question": "A box has 100 light bulbs. 5 are defective. What is the probability of randomly selecting a good bulb?",
+    "expected": "95% (or 0.95)",
+    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=calculator{\"expression\": \"95/100\"}</function>'}}",
+    "correct": false,
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message rather than a numerical solution to the problem."
+  },
+  {
+    "question": "What is the largest organ in the human body?",
+    "expected": "Skin",
+    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"largest organ in the human body\"}</function>'}}",
+    "correct": false,
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not a valid response to the question."
+  },
+  {
+    "question": "Which ancient civilization built the pyramids of Giza?",
+    "expected": "Ancient Egyptians",
+    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"ancient civilization that built the pyramids of Giza\"}</function>'}}",
+    "correct": false,
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not a valid response to the question."
+  },
+  {
+    "question": "What operating system does Apple iPhone use?",
+    "expected": "iOS",
+    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine({\"question\": \"Apple iPhone operating system\"})</function>'}}",
+    "correct": false,
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not the expected operating system name."
+  },
+  {
+    "question": "How many hearts does an octopus have?",
+    "expected": "Three hearts",
+    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine {\"question\": \"number of hearts in an octopus\"} </function>'}}",
+    "correct": false,
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message instead of a valid response."
+  },
+  {
+    "question": "Who founded Microsoft?",
+    "expected": "Bill Gates and Paul Allen",
+    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"Who founded Microsoft?\"}</function>'}}",
+    "correct": false,
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not a valid response to the question."
+  },
+  {
+    "question": "What percentage of the US population lives in California?",
+    "expected": "11\u00e2\u20ac\u201c12%",
+    "agent_answer": "As of 2024, approximately 11.92% of the US population lives in California.",
+    "correct": true,
+    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer of 11.92% falls within the expected range of 11-12%."
+  },
+  {
+    "question": "What is the population density of Japan compared to the USA?",
+    "expected": "\u00e2\u2030\u02c69.2",
+    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"population density of Japan and USA\"}</function>'}}",
+    "correct": false,
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message and does not provide a numerical value."
+  },
+  {
+    "question": "What percentage of the world's population lives in India?",
+    "expected": "~17\u00e2\u20ac\u201c18%",
+    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"What percentage of the world\\'s population lives in India?\"}</function>'}}",
+    "correct": false,
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message instead of a numerical value."
+  },
+  {
+    "question": "Compare India and China's land area. How many times larger is China?",
+    "expected": "\u00e2\u2030\u02c62.9",
+    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"India land area\"}</function>\\n'}}",
+    "correct": false,
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message and does not provide a numerical comparison of India and China's land area."
+  },
+  {
+    "question": "What percentage of Earth's land area is covered by the Amazon rainforest?",
+    "expected": "3.7%",
+    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"percentage of earth land area covered by amazon rainforest\"}</function>'}}",
+    "correct": false,
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message and does not provide a numerical value."
+  }
+]
