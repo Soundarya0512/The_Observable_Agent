@@ -9,9 +9,9 @@
   {
     "question": "A dice is rolled once. What is the probability of getting a number greater than 4?",
     "expected": "approximately 0.333",
-    "agent_answer": "The probability of getting a number greater than 4 on a single roll of a dice is 1/3 or approximately 0.33.",
+    "agent_answer": "The probability of getting a number greater than 4 on a single roll of a fair six-sided dice is 1/3 or approximately 0.33.",
     "correct": true,
-    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer matches the expected meaning with equivalent numerical value."
+    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer matches the expected meaning with a numerically equivalent probability."
   },
   {
     "question": "If you have 10 apples and give away 3, then buy 5 more, how many apples do you have?",
@@ -23,85 +23,85 @@
   {
     "question": "A car travels 120 km in 2 hours. What is its average speed?",
     "expected": "60 km/h",
-    "agent_answer": "The car's average speed is 60 km/h.",
+    "agent_answer": "To find the average speed of the car, we need to divide the distance traveled (120 km) by the time taken (2 hours).\n\nAverage speed = Distance / Time\n= 120 km / 2 hours\n= 60 km/h\n\nSo, the average speed of the car is 60 km/h.",
     "correct": true,
-    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer matches the expected meaning of 60 km/h."
+    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer matches the expected meaning with the correct calculation and result."
   },
   {
     "question": "A box has 100 light bulbs. 5 are defective. What is the probability of randomly selecting a good bulb?",
     "expected": "95% (or 0.95)",
-    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=calculator{\"expression\": \"95/100\"}</function>'}}",
+    "agent_answer": "ERROR after 3 attempts",
     "correct": false,
-    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message rather than a numerical solution to the problem."
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message after 3 attempts, not a numerical solution."
   },
   {
     "question": "What is the largest organ in the human body?",
     "expected": "Skin",
-    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"largest organ in the human body\"}</function>'}}",
+    "agent_answer": "The largest organ in the human body is the interstitium, which is a network of channels that runs around and between our cells and tissues. It was only discovered in the last 10 years and is considered a distinct organ or organized network. Prior to 2018, this network was thought of simply as fluid between our cells, but researchers have since found that it is a complex system that plays a crucial role in our overall health.",
     "correct": false,
-    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not a valid response to the question."
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer does not match the expected answer, which is the skin."
   },
   {
     "question": "Which ancient civilization built the pyramids of Giza?",
     "expected": "Ancient Egyptians",
-    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"ancient civilization that built the pyramids of Giza\"}</function>'}}",
+    "agent_answer": "ERROR after 3 attempts",
     "correct": false,
-    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not a valid response to the question."
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not a valid response."
   },
   {
     "question": "What operating system does Apple iPhone use?",
     "expected": "iOS",
-    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine({\"question\": \"Apple iPhone operating system\"})</function>'}}",
+    "agent_answer": "ERROR after 3 attempts",
     "correct": false,
-    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not the expected operating system name."
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not a valid operating system."
   },
   {
     "question": "How many hearts does an octopus have?",
     "expected": "Three hearts",
-    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine {\"question\": \"number of hearts in an octopus\"} </function>'}}",
-    "correct": false,
-    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message instead of a valid response."
-  },
-  {
-    "question": "Who founded Microsoft?",
-    "expected": "Bill Gates and Paul Allen",
-    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"Who founded Microsoft?\"}</function>'}}",
+    "agent_answer": "ERROR after 3 attempts",
     "correct": false,
     "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not a valid response to the question."
   },
   {
+    "question": "Who founded Microsoft?",
+    "expected": "Bill Gates and Paul Allen",
+    "agent_answer": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975.",
+    "correct": true,
+    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer matches the expected meaning, correctly identifying Bill Gates and Paul Allen as the founders of Microsoft."
+  },
+  {
     "question": "What percentage of the US population lives in California?",
     "expected": "11\u00e2\u20ac\u201c12%",
-    "agent_answer": "As of 2024, approximately 11.92% of the US population lives in California.",
+    "agent_answer": "According to the United States Census Bureau, approximately 11.9% of the US population lives in California, based on 2020 estimates.",
     "correct": true,
-    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer of 11.92% falls within the expected range of 11-12%."
+    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer of 11.9% falls within the expected range of 11-12%."
   },
   {
     "question": "What is the population density of Japan compared to the USA?",
     "expected": "\u00e2\u2030\u02c69.2",
-    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"population density of Japan and USA\"}</function>'}}",
-    "correct": false,
-    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message and does not provide a numerical value."
+    "agent_answer": "According to the United States Census Bureau, Japan's population density is approximately 347 people per square kilometer, while the United States has a population density of about 36 people per square kilometer. This means that Japan's population density is roughly 9.6 times higher than that of the United States.",
+    "correct": true,
+    "judge_verdict": "VERDICT: CORRECT\nREASON: The agent's answer conveys the same meaning as the expected answer, with a ratio of approximately 9.6, which is numerically close to 9.2."
   },
   {
     "question": "What percentage of the world's population lives in India?",
     "expected": "~17\u00e2\u20ac\u201c18%",
-    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"What percentage of the world\\'s population lives in India?\"}</function>'}}",
+    "agent_answer": "ERROR after 3 attempts",
     "correct": false,
-    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message instead of a numerical value."
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message after multiple attempts, not a numerical answer."
   },
   {
     "question": "Compare India and China's land area. How many times larger is China?",
     "expected": "\u00e2\u2030\u02c62.9",
-    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"India land area\"}</function>\\n'}}",
+    "agent_answer": "ERROR after 3 attempts",
     "correct": false,
-    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message and does not provide a numerical comparison of India and China's land area."
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not a numerical value."
   },
   {
     "question": "What percentage of Earth's land area is covered by the Amazon rainforest?",
     "expected": "3.7%",
-    "agent_answer": "ERROR: Error code: 400 - {'error': {'message': \"Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_engine{\"question\": \"percentage of earth land area covered by amazon rainforest\"}</function>'}}",
+    "agent_answer": "ERROR after 3 attempts",
     "correct": false,
-    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message and does not provide a numerical value."
+    "judge_verdict": "VERDICT: INCORRECT\nREASON: The agent's answer is an error message, not a numerical value."
   }
 ]
