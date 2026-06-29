@@ -1,4 +1,5 @@
 from agent import run_agent
+from agent_retry import run_agent_retry
 import os
 import json
 
@@ -52,7 +53,7 @@ for item in test_questions:
     question = item["question"]
     expected = item["expected_answer"]
 
-    answer = run_agent(question)
+    answer = run_agent_retry(question)
     is_correct,verdict=judge_answer(question,expected,answer)
 
     if is_correct:
@@ -63,16 +64,26 @@ for item in test_questions:
         "expected": expected,
         "agent_answer": answer,
         "correct": is_correct,
-        "judge_verdict": verdict        
+        "judge_verdict": verdict,
+
     })
 
     print((f"{'✓' if is_correct else '✗'} {question}"))
     print("Agent_answer: ", answer)
 
 score = correct_count / len(test_questions) * 100
-print(f"\nBaseline Score: {correct_count}/{len(test_questions)} = {score:.1f}%")
+print(f"\n Results_retry Score: {correct_count}/{len(test_questions)} = {score:.1f}%")
 
-with open("baseline_results.json", "w") as f:
-    json.dump(result, f, indent=2)
+output = {
+    "version": "retry",
+    "score_percent": round(score, 1),
+    "correct": correct_count,
+    "total": len(test_questions),
+    "results": result            # ← the whole list nested here
+}
 
-print("Saved to baseline_results1.json")
+with open("results_retry.json", "w") as f:
+    json.dump(output, f, indent=2)
+
+
+print("Saved to results_retry.json")
