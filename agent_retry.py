@@ -65,7 +65,7 @@ def run_agent_retry(question,max_retries=3):
 
             response = client.chat.completions.create(
 
-                model="llama-3.3-70b-versatile",
+                model="openai/gpt-oss-120b",
                 tools=tools,
                 tool_choice="auto",
                 messages=messages,
@@ -102,20 +102,29 @@ def run_agent_retry(question,max_retries=3):
             # 3. Call the LLM again with the now-fuller conversation
             
             second_response = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
+                model="openai/gpt-oss-120b",
                 messages=messages,
                 )
 
             # 4. Print the natural final answer
 
             final_answer = second_response.choices[0].message.content
-            return final_answer
+            return {
+                "answer":final_answer,
+                "attempts":attempt+1,
+                "tool_used":function_name,
+                "success":True
+            }
 
         except Exception as e:
             print (f"Error caught: {e}")
             continue
     
-    return f"Error after {attempt+1} attempt"
+    return {
+        "answer": f"Error after {attempt+1} attempt",
+        "attempts":max_retries,
+        "tool_used":None,
+        "success":False}
 
 
 #print(run_agent("What is 18 percent of 4500?"))

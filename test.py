@@ -53,8 +53,11 @@ for item in test_questions:
     question = item["question"]
     expected = item["expected_answer"]
 
-    answer = run_agent_retry(question)
-    is_correct,verdict=judge_answer(question,expected,answer)
+    agent_result = run_agent_retry(question)
+    answer_text = agent_result["answer"]            # just the answer text
+    tool_used = agent_result["tool_used"]           # the tool (for recording!)
+    attempts = agent_result["attempts"]   
+    is_correct,verdict=judge_answer(question,expected,answer_text)
 
     if is_correct:
         correct_count=correct_count+1
@@ -62,28 +65,31 @@ for item in test_questions:
     result.append({
         "question": question,
         "expected": expected,
-        "agent_answer": answer,
+        "agent_answer": answer_text,
         "correct": is_correct,
         "judge_verdict": verdict,
+        "tool_used": tool_used,             
+        "attempts": attempts,               
+        "success": agent_result["success"]
 
     })
 
     print((f"{'✓' if is_correct else '✗'} {question}"))
-    print("Agent_answer: ", answer)
+    print("Agent_answer: ", answer_text)
 
 score = correct_count / len(test_questions) * 100
-print(f"\n Results_retry Score: {correct_count}/{len(test_questions)} = {score:.1f}%")
+print(f"\n Results_modelswap Score: {correct_count}/{len(test_questions)} = {score:.1f}%")
 
 output = {
-    "version": "retry",
+    "version": "gpt-oss-120b",
     "score_percent": round(score, 1),
     "correct": correct_count,
     "total": len(test_questions),
     "results": result            # ← the whole list nested here
 }
 
-with open("results_retry.json", "w") as f:
+with open("results_modelswap.json", "w") as f:
     json.dump(output, f, indent=2)
 
 
-print("Saved to results_retry.json")
+print("Saved to results_modelswap.json")
