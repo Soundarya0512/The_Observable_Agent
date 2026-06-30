@@ -56,7 +56,9 @@ for item in test_questions:
     agent_result = run_agent_retry(question)
     answer_text = agent_result["answer"]            # just the answer text
     tool_used = agent_result["tool_used"]           # the tool (for recording!)
-    attempts = agent_result["attempts"]   
+    attempts = agent_result["attempts"]
+    latency=agent_result["latency"]
+    tokens=agent_result["tokens"]
     is_correct,verdict=judge_answer(question,expected,answer_text)
 
     if is_correct:
@@ -70,7 +72,9 @@ for item in test_questions:
         "judge_verdict": verdict,
         "tool_used": tool_used,             
         "attempts": attempts,               
-        "success": agent_result["success"]
+        "success": agent_result["success"],
+        "latency":latency,
+        "tokens":tokens
 
     })
 

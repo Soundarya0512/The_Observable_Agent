@@ -3,9 +3,11 @@ from dotenv import load_dotenv
 from groq import Groq
 import json 
 from tools import calculator,search_engine
+import time
 load_dotenv()
 
 def run_agent_retry(question,max_retries=3):
+    start_time=time.time()
     for attempt in range(max_retries):
         try:
             
@@ -71,8 +73,10 @@ def run_agent_retry(question,max_retries=3):
                 messages=messages,
             )
             response_message = response.choices[0].message
+            first_tokens = response.usage.total_tokens
             #print(response_message)
             #print(response_message.tool_calls)
+
 
 
 
@@ -109,22 +113,32 @@ def run_agent_retry(question,max_retries=3):
             # 4. Print the natural final answer
 
             final_answer = second_response.choices[0].message.content
+            second_tokens = second_response.usage.total_tokens
+            latency=time.time()-start_time
+            total_tokens = first_tokens + second_tokens
             return {
                 "answer":final_answer,
                 "attempts":attempt+1,
                 "tool_used":function_name,
-                "success":True
+                "success":True,
+                "latency":round(latency,2),
+                "tokens":total_tokens
             }
 
         except Exception as e:
             print (f"Error caught: {e}")
             continue
     
+    latency=time.time()-start_time
+    
     return {
         "answer": f"Error after {attempt+1} attempt",
         "attempts":max_retries,
         "tool_used":None,
-        "success":False}
+        "success":False,
+        "latency":round(latency,2),
+        "tokens": 0  
+        }
 
 
 #print(run_agent("What is 18 percent of 4500?"))
