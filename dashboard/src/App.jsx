@@ -10,6 +10,13 @@ function App() {
       .then(data => setScores(data))
   }, [])
 
+  const versionsTested = scores.length
+  const accuracies = scores.map(row => row.correct / row.total * 100)
+  const bestAccuracy = Math.max(...accuracies)
+  const baselineRow = scores.find(row => row.version === "baseline")
+  const baselineAccuracy = baselineRow ? (baselineRow.correct / baselineRow.total * 100) : 0
+  const improvement = bestAccuracy - baselineAccuracy
+
   return (
     <div>
       <h1>My Dashboard</h1>
@@ -18,7 +25,24 @@ function App() {
         <YAxis />
         <Bar dataKey="correct" fill="#1baf7a" />
       </BarChart>
+    
+
+    <div>
+      <p> Version Tested</p>
+      <p>{versionsTested}</p>
     </div>
+
+    <div>
+      <p>Best Accuracy</p>
+      <p>{bestAccuracy.toFixed(1)}%</p>
+    </div>
+    <div>
+      <p>Improvements</p>
+      <p>{improvement.toFixed(1)}pts</p>
+    </div>
+
+
+  </div>
   )
 }
 
