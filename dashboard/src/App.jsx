@@ -1,18 +1,23 @@
 import { useState, useEffect } from "react"
+import { BarChart, Bar, XAxis, YAxis } from "recharts"
 
 function App() {
-  const [scores, setScores] = useState([])      // the board (empty at first)
+  const [scores, setScores] = useState([])
 
-  useEffect(() => {                             // when page loads...
-    fetch("http://localhost:8000/scores")       // go to your backend
-      .then(res => res.json())                  // unpack the response
-      .then(data => setScores(data))            // write it on the board
-  }, [])                                        // run once, on load
+  useEffect(() => {
+    fetch("http://localhost:8000/scores")
+      .then(res => res.json())
+      .then(data => setScores(data))
+  }, [])
 
   return (
     <div>
       <h1>My Dashboard</h1>
-      {scores.map(row => <p>{row.version}: {row.correct}</p>)}
+      <BarChart width={500} height={300} data={scores}>
+        <XAxis dataKey="version" />
+        <YAxis />
+        <Bar dataKey="correct" fill="#1baf7a" />
+      </BarChart>
     </div>
   )
 }
