@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-import { BarChart, Bar, XAxis, YAxis } from "recharts"
+import { BarChart, Bar, XAxis, YAxis,ResponsiveContainer  } from "recharts"
+import "./App.css"
 
 function App() {
   const [scores, setScores] = useState([])
@@ -18,31 +19,38 @@ function App() {
   const improvement = bestAccuracy - baselineAccuracy
 
   return (
-    <div>
-      <h1>My Dashboard</h1>
-      <BarChart width={500} height={300} data={scores}>
-        <XAxis dataKey="version" />
-        <YAxis />
-        <Bar dataKey="correct" fill="#1baf7a" />
-      </BarChart>
-    
+    <div className="dashboard">
+      <header className="dashboard-header">
+        <h1>The Observable Agent</h1>
+        <p className="subtitle">I kept asking "how do you know?" — so I built something that could answer.</p>
+      </header>
 
-    <div>
-      <p> Version Tested</p>
-      <p>{versionsTested}</p>
+      <div className="summary-row">
+        <div className="card">
+          <p className="card-label">Best Accuracy</p>
+          <p className="card-value">{bestAccuracy.toFixed(1)}%</p>
+        </div>
+        <div className="card">
+          <p className="card-label">Improvement</p>
+          <p className="card-value">+{improvement.toFixed(1)} pts</p>
+        </div>
+        <div className="card">
+          <p className="card-label">Versions Tested</p>
+          <p className="card-value">{versionsTested}</p>
+        </div>
+      </div>
+
+      <div className="chart-card">
+        <p className="chart-title">Accuracy by Version</p>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={scores}>
+            <XAxis dataKey="version" />
+            <YAxis />
+            <Bar dataKey="correct" fill="#8b5cf6" radius={[6, 6, 0, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
-
-    <div>
-      <p>Best Accuracy</p>
-      <p>{bestAccuracy.toFixed(1)}%</p>
-    </div>
-    <div>
-      <p>Improvements</p>
-      <p>{improvement.toFixed(1)}pts</p>
-    </div>
-
-
-  </div>
   )
 }
 
